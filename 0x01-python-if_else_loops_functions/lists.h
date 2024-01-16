@@ -10,16 +10,16 @@
  * Description: singly linked list node structure
  *
  */
-typedef struct listint_s
+typedef struct list_s
 {
     int n;
-    struct listint_s *next;
-} listint_t;
+    struct list_s *next;
+} list_t;
 
-size_t print_listint(const listint_t *h);
-listint_t *add_nodeint_end(listint_t **head, const int n);
-void free_listint(listint_t *head);
+size_t print_listint(const list_t *h);
+list_t *add_nodeint_end(list_t **head, const int n);
+void free_listint(list_t *head);
 
-listint_t *insert_node(listint_t **head, int num);
+list_t *insert_node(list_t **head, int num);
 
 #endif /* LISTS_H */

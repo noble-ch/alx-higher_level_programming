@@ -7,14 +7,14 @@
  * @num: the number to be inserted
  * Return: address
  */
-listint_t *insert_node(listint_t **head, int num)
+list_t *insert_node(list_t **head, int num)
 {
-	listint_t *new;
-	listint_t *current;
+	list_t *new;
+	list_t *current;
 
 	current = *head;
 
-	new = malloc(sizeof(listint_t));
+	new = malloc(sizeof(list_t));
 	if (new == NULL)
 		return (NULL);
 
