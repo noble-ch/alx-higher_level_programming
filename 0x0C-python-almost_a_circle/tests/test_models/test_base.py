@@ -47,29 +47,29 @@ class TestBaseDocs(unittest.TestCase):
 
 
 class TestBase(unittest.TestCase):
-    """functionality of Base class check Tests"""
+    """functionality of Base class check Test"""
     def test_too_many_args(self):
         """too many args to init test """
         with self.assertRaises(TypeError):
             b = Base(1, 1)
 
     def test_no_id(self):
-        """Tests id as None"""
+        """id as None Test"""
         b = Base()
         self.assertEqual(b.id, 1)
 
     def test_id_set(self):
-        """Tests id as not None"""
+        """id as not None Test"""
         b98 = Base(98)
         self.assertEqual(b98.id, 98)
 
     def test_no_id_after_set(self):
-        """Tests id as None after not None"""
+        """ id as None after not None Test"""
         b2 = Base()
         self.assertEqual(b2.id, 2)
 
     def test_nb_private(self):
-        """Tests nb_objects as a private instance attribute"""
+        """ nb_objects as a private instance attribute Test"""
         b = Base(3)
         with self.assertRaises(AttributeError):
             print(b.nb_objects)
@@ -77,7 +77,7 @@ class TestBase(unittest.TestCase):
             print(b.__nb_objects)
 
     def test_to_json_string(self):
-        """Tests regular to json string"""
+        """regular to json string Test"""
         Base._Base__nb_objects = 0
         d1 = {"id": 9, "width": 5, "height": 6, "x": 7, "y": 8}
         d2 = {"id": 2, "width": 2, "height": 3, "x": 4, "y": 0}
@@ -87,7 +87,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(d, [d1, d2])
 
     def test_empty_to_json_string(self):
-        """Test for passing empty list/ None"""
+        """for passing empty list/ None Test"""
         json_s = Base.to_json_string([])
         self.assertTrue(type(json_s) is str)
         self.assertEqual(json_s, "[]")
@@ -98,7 +98,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(json_s, "[]")
 
     def test_from_json_string(self):
-        """Tests regular from_json_string"""
+        """regular from_json_string Test"""
         json_str = '[{"id": 9, "width": 5, "height": 6, "x": 7, "y": 8}, \
 {"id": 2, "width": 2, "height": 3, "x": 4, "y": 0}]'
         json_l = Base.from_json_string(json_str)
@@ -112,9 +112,9 @@ class TestBase(unittest.TestCase):
                          {"id": 2, "width": 2, "height": 3, "x": 4, "y": 0})
 
     def test_fjs_empty(self):
-        """Tests from_json_string with an empty string"""
+        """from_json_string with an empty string Test"""
         self.assertEqual([], Base.from_json_string(""))
 
     def test_fjs_None(self):
-        """Tests from_json_string with an empty string"""
+        """from_json_string with an empty string Test"""
         self.assertEqual([], Base.from_json_string(None))
